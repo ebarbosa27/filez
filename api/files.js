@@ -6,5 +6,5 @@ import { getFiles } from "../db/queries/files.js";
 
 filesRouter.get("/", async (req, res) => {
   const files = await getFiles();
-  res.json(files);
+  res.send(files);
 });
