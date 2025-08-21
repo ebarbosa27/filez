@@ -14,7 +14,6 @@ foldersRouter.get("/:id", async (req, res) => {
     const folders = await getFolder(folderId);
     res.send(folders);
   } catch (err) {
-    console.log(err.message);
     res.status(404).send({ error: err.message });
   }
 });

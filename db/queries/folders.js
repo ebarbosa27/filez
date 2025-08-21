@@ -33,8 +33,10 @@ export async function addFileToFolder(folderId, file) {
   INSERT INTO 
     files(name, size, folder_id)
   VALUES
-    ($1, $2, $3) RETURNING *;`;
+    ($1, $2, $3) 
+  RETURNING 
+  *;`;
   const values = [file.name, file.size, folderId];
   const { rows: folders } = await db.query(sql, values);
-  return folders;
+  return folders[0];
 }
